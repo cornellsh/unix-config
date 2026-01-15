@@ -1,0 +1,75 @@
+# Vibrant Pastel / OLED Starship Config
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$rust\
+$golang\
+$python\
+$docker_context\
+$line_break\
+$character"""
+
+add_newline = true
+
+# Palette: Vibrant Pastels
+[palettes.vibrant_oled]
+pink = "#ff7eb6"
+cyan = "#82cfff"
+green = "#42be65"
+purple = "#be95ff"
+yellow = "#ffe97b"
+red = "#ff5555"
+black = "#000000"
+white = "#ffffff"
+
+[character]
+success_symbol = "[➜](bold #ff7eb6)" # Vibrant Pink
+error_symbol = "[➜](bold #ff5555)"   # Red
+vimcmd_symbol = "[❮](bold #42be65)"  # Green
+
+[directory]
+style = "bold #82cfff" # Vibrant Cyan
+format = "[$path]($style) "
+truncation_length = 3
+truncation_symbol = "../"
+read_only = " 󰌾"
+
+[git_branch]
+symbol = " "
+style = "bold #be95ff" # Vibrant Purple
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold #ff5555"
+format = '([$all_status$ahead_behind]($style) )'
+
+[nodejs]
+symbol = " "
+style = "#42be65"
+format = "via [$symbol($version )]($style)"
+
+[rust]
+symbol = " "
+style = "#ff5555"
+format = "via [$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+style = "#82cfff"
+format = "via [$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "#ffe97b"
+format = "via [$symbol($version )]($style)"
+
+[docker_context]
+symbol = " "
+style = "#82cfff"
+format = "at [$symbol$context]($style) "
+
+[package]
+disabled = true
