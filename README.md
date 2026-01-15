@@ -4,6 +4,8 @@ A highly optimized, aesthetic configuration for Linux environments. Features a "
 
 ## Preview
 
+![Terminal Preview](https://i.imgur.com/A2KgzQe.png)
+
 **Tmux Theme:**
 - **Style:** OLED Black bar with vibrant pastel accents (Pink/Lavender/Mint).
 - **Interactive:**
