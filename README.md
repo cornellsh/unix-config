@@ -23,6 +23,7 @@ cd ~/.config/cfg && chmod +x install.sh && ./install.sh
 | `r` | Reload config |
 | `v` / `s` | Split Vertical / Horizontal |
 | `h/j/k/l` | Navigate panes |
+| `Arrows` | Resize panes (repeatable) |
 | `c` | New window |
 | `z` | Zoom pane |
 | `x` / `X` | Kill pane / window |
