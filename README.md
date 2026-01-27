@@ -1,6 +1,6 @@
 # config
 
-High-vibrancy, config for **Zsh**, **Tmux**, and **Starship**.
+Minimalistic config for **Zsh**, **Tmux**, and **Starship**.
 
 ## Setup
 
