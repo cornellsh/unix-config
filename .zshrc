@@ -102,9 +102,9 @@ alias ....="cd ../../.."
 # Replacements with modern tools if available
 if command -v eza >/dev/null 2>&1; then
   alias ls="eza"
-  alias ll="eza -lah --git --icons"
-  alias la="eza -la --icons"
-  alias tree="eza --tree --icons"
+  alias ll="eza -lah --git"
+  alias la="eza -la"
+  alias tree="eza --tree"
 fi
 
 if command -v batcat >/dev/null 2>&1; then

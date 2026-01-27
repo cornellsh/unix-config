@@ -1,4 +1,4 @@
-# Vibrant Pastel / OLED Starship Config
+# Vibrant Pastel / Text-Only Starship Config
 
 format = """
 $username\
@@ -36,7 +36,7 @@ style_user = "bold #82cfff"
 style_root = "bold #ff5555"
 format = "[$user]($style) "
 disabled = false
-show_always = false # Only show via SSH
+show_always = false 
 
 [hostname]
 ssh_only = true
@@ -44,65 +44,69 @@ format = "on [$hostname](bold #be95ff) "
 disabled = false
 
 [character]
-success_symbol = "[➜](bold #ff7eb6)" # Vibrant Pink
-error_symbol = "[➜](bold #ff5555)"   # Red
-vimcmd_symbol = "[❮](bold #42be65)"  # Green
+success_symbol = "[>>](bold #ff7eb6)"
+error_symbol = "[>>](bold #ff5555)"
+vimcmd_symbol = "[<<](bold #42be65)"
 
 [directory]
-style = "bold #82cfff" # Vibrant Cyan
+style = "bold #82cfff"
 format = "[$path]($style) "
 truncation_length = 3
 truncation_symbol = "../"
-read_only = " 󰌾"
+read_only = " [ro]"
 [directory.substitutions]
-"~/work" = "💼"
+"~/work" = "work"
 
 [git_branch]
-symbol = " "
-style = "bold #be95ff" # Vibrant Purple
+symbol = "git:"
+style = "bold #be95ff"
 format = "on [$symbol$branch]($style) "
 
 [git_status]
 style = "bold #ff5555"
 format = '([$all_status$ahead_behind]($style) )'
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+ahead = "ahead:${count}"
+behind = "behind:${count}"
+diverged = "div:^${ahead_count}v${behind_count}"
+modified = "!"
+stashed = "$"
+deleted = "x"
 
 [git_metrics]
 disabled = false
 added_style = "bold #42be65"
 deleted_style = "bold #ff5555"
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 
 [memory_usage]
 disabled = false
 threshold = 85
-symbol = "󰍛 "
+symbol = "mem: "
 style = "bold #ff5555"
-format = "[$symbol${ram}( ${swap})]($style) "
+format = "[$symbol${ram}]($style) "
 
 [nodejs]
-symbol = " "
+symbol = "node "
 style = "#42be65"
 format = "via [$symbol($version )]($style)"
 
 [rust]
-symbol = " "
+symbol = "rust "
 style = "#ff5555"
 format = "via [$symbol($version )]($style)"
 
 [golang]
-symbol = " "
+symbol = "go "
 style = "#82cfff"
 format = "via [$symbol($version )]($style)"
 
 [python]
-symbol = " "
+symbol = "py "
 style = "#ffe97b"
 format = "via [$symbol($version )]($style)"
 
 [docker_context]
-symbol = " "
+symbol = "docker "
 style = "#82cfff"
 format = "at [$symbol$context]($style) "
 
@@ -111,7 +115,7 @@ min_time = 2_000
 format = "took [$duration](bold #ffe97b) "
 
 [jobs]
-symbol = " "
+symbol = "jobs:"
 style = "bold #ff5555"
 format = "[$symbol$number]($style) "
 
