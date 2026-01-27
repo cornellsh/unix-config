@@ -1,6 +1,8 @@
 # Vibrant Pastel / OLED Starship Config
 
 format = """
+$username\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -10,6 +12,7 @@ $rust\
 $golang\
 $python\
 $docker_context\
+$memory_usage\
 $cmd_duration\
 $jobs\
 $line_break\
@@ -28,6 +31,18 @@ red = "#ff5555"
 black = "#000000"
 white = "#ffffff"
 
+[username]
+style_user = "bold #82cfff"
+style_root = "bold #ff5555"
+format = "[$user]($style) "
+disabled = false
+show_always = false # Only show via SSH
+
+[hostname]
+ssh_only = true
+format = "on [$hostname](bold #be95ff) "
+disabled = false
+
 [character]
 success_symbol = "[➜](bold #ff7eb6)" # Vibrant Pink
 error_symbol = "[➜](bold #ff5555)"   # Red
@@ -39,6 +54,8 @@ format = "[$path]($style) "
 truncation_length = 3
 truncation_symbol = "../"
 read_only = " 󰌾"
+[directory.substitutions]
+"~/work" = "💼"
 
 [git_branch]
 symbol = " "
@@ -48,11 +65,21 @@ format = "on [$symbol$branch]($style) "
 [git_status]
 style = "bold #ff5555"
 format = '([$all_status$ahead_behind]($style) )'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 [git_metrics]
 disabled = false
 added_style = "bold #42be65"
 deleted_style = "bold #ff5555"
+
+[memory_usage]
+disabled = false
+threshold = 85
+symbol = "󰍛 "
+style = "bold #ff5555"
+format = "[$symbol${ram}( ${swap})]($style) "
 
 [nodejs]
 symbol = " "

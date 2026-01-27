@@ -41,6 +41,7 @@ setopt PUSHD_IGNORE_DUPS       # Do not store duplicates in the stack
 setopt PUSHD_SILENT            # Do not print the directory stack on pushd or popd
 setopt EXTENDED_GLOB           # Use extended globbing syntax
 setopt NO_BEEP                 # No beep
+setopt CORRECT                 # Autocorrect commands
 
 # --- Completion ---
 autoload -Uz compinit
@@ -89,6 +90,11 @@ fi
 # --- Aliases ---
 # General
 alias l="ls -lah"
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+alias -g G='| grep'
+alias -g L='| less'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
