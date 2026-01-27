@@ -1,7 +1,6 @@
-# dotfiles // cornell.sh
+# config
 
-High-vibrancy, text-based terminal environment.
-Optimized for **Zsh**, **Tmux**, and **Starship**.
+High-vibrancy, config for **Zsh**, **Tmux**, and **Starship**.
 
 ## Setup
 
