@@ -7,8 +7,7 @@ I built this to have a consistent environment across all my servers and machines
 **What's inside:**
 *   **Core Config:**
     *   **Zsh & Starship:** Fast, readable prompt with tuned timeouts.
-    *   **Tmux:** Clean status bar and sensible keybindings.
-    *   **Scripts:** Install scripts that you can run safely multiple times.
+    *   **Tmux:** Clean status bar and easy keybindings.
 *   **WSL2 Support (Optional):**
     *   If detected, the script can automatically patch `systemd-timesyncd` (time drift) and apply memory limits (`.wslconfig`) to keep Windows running smoothly.
 
