@@ -5,7 +5,8 @@ My personal dotfiles for Zsh, Tmux, and Starship.
 I built this to make setting up new machines less painful. It's a structured, opinionated setup that just works, with a heavy focus on fixing common WSL2 annoyances out of the box.
 
 **What's inside:**
-*   **WSL2 Fixes:** Automatically patches `systemd-timesyncd` (time drift), limits memory usage so Windows doesn't choke, and optimizes I/O settings.
+*   **WSL2 Fixes:** Automatically patches `systemd-timesyncd` (time drift), and optimizes I/O settings.
+    *   *Note:* It installs a default `.wslconfig` limiting VM memory to **8GB**. You should adjust this in `%UserProfile%\.wslconfig` if your machine has different specs.
 *   **Starship:** A prompt config that is readable and fast (tuned timeouts for git scanning).
 *   **Tmux:** Clean status bar and sensible keybindings.
 *   **Scripts:** Idempotent install scripts that won't break if you run them twice.
