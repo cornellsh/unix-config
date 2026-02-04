@@ -2,13 +2,15 @@
 
 My personal dotfiles for Zsh, Tmux, and Starship.
 
-I built this to have a consistent environment across all my servers and machines. It's a reliable, standard Unix setup that works everywhere (Linux, macOS), but also includes specific optimizations if it detects WSL.
+I built this to have a consistent environment across all my servers and machines. It's a reliable, standard Unix setup that works everywhere, but also includes specific optimizations if it detects WSL.
 
-**Features:**
-*   **Shell & Terminal:** Zsh with autosuggestions, a fast Starship prompt, and a clean Tmux config.
-*   **Universal:** Designed to work on generic Linux distros.
-*   **WSL2 Support:** If running on WSL, it automatically applies specific fixes for time drift and performance.
-*   **Safe Setup:** Scripts that you can run safely multiple times.
+**What's inside:**
+*   **Core Config:**
+    *   **Zsh & Starship:** Fast, readable prompt with tuned timeouts.
+    *   **Tmux:** Clean status bar and sensible keybindings.
+    *   **Scripts:** Install scripts that you can run safely multiple times.
+*   **WSL2 Support (Optional):**
+    *   If detected, the script can automatically patch `systemd-timesyncd` (time drift) and apply memory limits (`.wslconfig`) to keep Windows running smoothly.
 
 ## Setup
 

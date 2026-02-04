@@ -75,8 +75,14 @@ backup_and_link "$CONFIG_DIR/starship.toml" "$HOME/.config/starship.toml"
 # 5. WSL Specific Setup
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     echo -e "\n${BLUE}[INFO] WSL Environment Detected...${NC}"
-    echo -e "[INFO] Running WSL optimizations..."
-    bash "$CONFIG_DIR/wsl-setup.sh"
+    read -p "Do you want to apply WSL2-specific optimizations (time sync fix, memory limits)? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo -e "[INFO] Running WSL optimizations..."
+        bash "$CONFIG_DIR/wsl-setup.sh"
+    else
+        echo -e "[INFO] Skipping WSL optimizations."
+    fi
 fi
 
 echo -e "\n${GREEN}[OK] Setup Complete!${NC}"
