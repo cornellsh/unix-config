@@ -1,12 +1,14 @@
-# Unix Config
+# unix-config
 
-A highly reproducible, performance-focused development environment setup for **Zsh**, **Tmux**, and **Starship**.
+My personal dotfiles for Zsh, Tmux, and Starship.
 
-**Why this setup?**
-- **Instant Productivity:** Bootstrap a complete, polished shell environment in seconds.
-- **WSL2 Optimized:** Automatically detects and fixes common performance bottlenecks (I/O latency, RAM starvation, time drift).
-- **Refined UX:** Saturated color schemes, standardized logs, and intuitive aliases.
-- **Stability First:** Conservative resource limits and proven configurations.
+I built this to make setting up new machines less painful. It's a structured, opinionated setup that just works, with a heavy focus on fixing common WSL2 annoyances out of the box.
+
+**What's inside:**
+*   **WSL2 Fixes:** Automatically patches `systemd-timesyncd` (time drift), limits memory usage so Windows doesn't choke, and optimizes I/O settings.
+*   **Starship:** A prompt config that is readable and fast (tuned timeouts for git scanning).
+*   **Tmux:** Clean status bar and sensible keybindings.
+*   **Scripts:** Idempotent install scripts that won't break if you run them twice.
 
 ## Setup
 
