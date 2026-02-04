@@ -1,0 +1,5 @@
+[wsl2]
+# Limit resource usage to avoid starving the host
+memory=8GB
+processors=4
+swap=2GB

@@ -16,6 +16,12 @@ cd ~/work/config
 - **Multiplexer:** Tmux (3.0+)
 - **Utils:** `eza`, `bat`, `zoxide`, `fzf`, `ripgrep`
 
+## WSL2 Optimizations
+The setup includes a `wsl-setup.sh` script that automatically:
+- Disables `systemd-timesyncd` to prevent time drift lags.
+- Configures `/etc/wsl.conf` for better filesystem performance.
+- creates `.wslconfig` in your Windows User Profile to limit RAM/CPU usage.
+
 ## Controls
 
 ### Tmux (`Ctrl+a` Prefix)

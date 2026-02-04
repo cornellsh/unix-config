@@ -20,14 +20,16 @@ $character"""
 
 add_newline = false
 
+scan_timeout = 1000
+
 # Palette: Vibrant Pastels
-[palettes.vibrant_oled]
-pink = "#ff7eb6"
-cyan = "#82cfff"
-green = "#42be65"
-purple = "#be95ff"
-yellow = "#ffe97b"
-red = "#ff5555"
+[palettes.custom]
+pink = "#ff66b2"
+cyan = "#00bfff"
+green = "#00cc00"
+purple = "#9932cc"
+yellow = "#ffff00"
+red = "#ff0000"
 black = "#000000"
 white = "#ffffff"
 

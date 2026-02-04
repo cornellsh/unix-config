@@ -72,5 +72,12 @@ backup_and_link "$CONFIG_DIR/.tmux.conf" "$HOME/.tmux.conf"
 backup_and_link "$CONFIG_DIR/.zshrc" "$HOME/.zshrc"
 backup_and_link "$CONFIG_DIR/starship.toml" "$HOME/.config/starship.toml"
 
+# 5. WSL Specific Setup
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    echo -e "\n${BLUE}WSL Environment Detected...${NC}"
+    echo -e "Running WSL optimizations..."
+    bash "$CONFIG_DIR/wsl-setup.sh"
+fi
+
 echo -e "\n${GREEN}Setup Complete!${NC}"
 echo -e "Please restart your shell or run: ${BLUE}source ~/.zshrc${NC}"
