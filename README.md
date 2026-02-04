@@ -1,6 +1,12 @@
-# config
+# Unix Config
 
-Minimalistic config for **Zsh**, **Tmux**, and **Starship**.
+A highly reproducible, performance-focused development environment setup for **Zsh**, **Tmux**, and **Starship**.
+
+**Why this setup?**
+- **Instant Productivity:** Bootstrap a complete, polished shell environment in seconds.
+- **WSL2 Optimized:** Automatically detects and fixes common performance bottlenecks (I/O latency, RAM starvation, time drift).
+- **Refined UX:** Saturated color schemes, standardized logs, and intuitive aliases.
+- **Stability First:** Conservative resource limits and proven configurations.
 
 ## Setup
 
