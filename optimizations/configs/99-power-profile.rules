@@ -1,0 +1,3 @@
+# Trigger power profile switcher when AC/battery status changes
+SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/local/bin/power-profile-switcher.sh"
+SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/local/bin/power-profile-switcher.sh"

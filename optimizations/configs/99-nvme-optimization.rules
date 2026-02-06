@@ -1,0 +1,8 @@
+# NVMe optimization for Samsung PM9A1 SSD
+# ASUS Zenbook UX5401Z
+
+# Set I/O scheduler to none for NVMe (optimal for SSDs)
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+
+# Optimize queue depth for better performance
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/nr_requests}="32"
