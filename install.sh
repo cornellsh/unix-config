@@ -102,7 +102,7 @@ echo -e "\n${BLUE}[INFO] Configuring Ghostty terminal...${NC}"
 mkdir -p "$HOME/.config/ghostty/themes"
 
 backup_and_link "$CONFIG_DIR/ghostty/config" "$HOME/.config/ghostty/config"
-backup_and_link "$CONFIG_DIR/ghostty/themes/cornellsh.conf" "$HOME/.config/ghostty/themes/cornellsh.conf"
+backup_and_link "$CONFIG_DIR/ghostty/themes/cornellsh" "$HOME/.config/ghostty/themes/cornellsh"
 
 # 4.2. DankMaterialShell Configuration
 echo -e "\n${BLUE}[INFO] Configuring DankMaterialShell...${NC}"
