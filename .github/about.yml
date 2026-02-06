@@ -1,0 +1,11 @@
+about: >-
+  A minimal, reproducible Linux environment configuration for Arch Linux and WSL2.
+  Focuses on power management, theming, and developer tools with OLED-optimized aesthetics.
+
+  Includes zsh configuration, starship prompt, tmux terminal multiplexer,
+  Ghostty terminal, DankMaterialShell Wayland shell, GTK/SDDM themes,
+  OpenCode AI assistant config, and comprehensive notebook optimizations
+  for Intel 12th Gen hardware.
+
+  All tools use the cornellsh theme: true black (#000000) backgrounds
+  with pastel accents - optimized for OLED displays to save power.
