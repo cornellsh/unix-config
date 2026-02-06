@@ -36,6 +36,8 @@ cd ~/work/config
 
 The install script backs up existing files to `~/.config-backup/` before symlinking.
 
+If OpenCode config is found, the script asks whether to install the `cornell.sh` theme and config globally.
+
 ## WSL2
 
 If the install script detects WSL2, it offers to run `wsl-setup.sh` which:

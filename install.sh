@@ -72,7 +72,37 @@ backup_and_link "$CONFIG_DIR/.tmux.conf" "$HOME/.tmux.conf"
 backup_and_link "$CONFIG_DIR/.zshrc" "$HOME/.zshrc"
 backup_and_link "$CONFIG_DIR/starship.toml" "$HOME/.config/starship.toml"
 
-# 5. WSL Specific Setup
+# 5. OpenCode Configuration (optional)
+if [ -f "$CONFIG_DIR/opencode.json" ]; then
+    echo -e "\n${BLUE}[INFO] OpenCode config found.${NC}"
+    read -p "Install OpenCode theme and config? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        # Install theme
+        mkdir -p "$HOME/.config/opencode/themes"
+        if [ -f "$CONFIG_DIR/.opencode/themes/cornell.sh.json" ]; then
+            cp "$CONFIG_DIR/.opencode/themes/cornell.sh.json" "$HOME/.config/opencode/themes/cornell.sh.json"
+            echo -e "${GREEN}[OK] OpenCode theme installed to ~/.config/opencode/themes/cornell.sh.json${NC}"
+        fi
+
+        # Ask about config merge
+        if [ -f "$HOME/.config/opencode/opencode.json" ]; then
+            read -p "Merge opencode.json with existing config? (backup current) (y/n) " -n 1 -r
+            echo
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                mv "$HOME/.config/opencode/opencode.json" "$HOME/.config/opencode/opencode.json.backup"
+                echo -e "${YELLOW}[WARN] Backed up existing opencode.json${NC}"
+                cp "$CONFIG_DIR/opencode.json" "$HOME/.config/opencode/opencode.json"
+                echo -e "${GREEN}[OK] OpenCode config installed${NC}"
+            fi
+        else
+            cp "$CONFIG_DIR/opencode.json" "$HOME/.config/opencode/opencode.json"
+            echo -e "${GREEN}[OK] OpenCode config installed${NC}"
+        fi
+    fi
+fi
+
+# 6. WSL Specific Setup
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     echo -e "\n${BLUE}[INFO] WSL Environment Detected...${NC}"
     read -p "Do you want to apply WSL2-specific optimizations (time sync fix, memory limits)? (y/n) " -n 1 -r
