@@ -1,0 +1,95 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "cornell.sh",
+  "config": {
+    "description": "Personal dotfiles for Zsh, Tmux, and Starship - Vibrant Pastel theme with OLED optimization",
+    "default_branch": "main"
+  },
+  "rules": [
+    {
+      "id": "shell-script-conventions",
+      "pattern": "**/*.sh",
+      "description": "Shell scripts should follow POSIX conventions and include error handling",
+      "severity": "warning"
+    },
+    {
+      "id": "config-file-backup",
+      "pattern": "**/.*rc",
+      "description": "Configuration files should preserve user settings during installation",
+      "severity": "suggestion"
+    },
+    {
+      "id": "wsl-detection",
+      "pattern": "install.sh",
+      "description": "Installation script should detect WSL environment and apply optimizations",
+      "severity": "info"
+    }
+  ],
+  "tools": {
+    "shellcheck": {
+      "enabled": true,
+      "pattern": "**/*.sh",
+      "description": "Lint shell scripts for best practices and common errors"
+    },
+    "zsh": {
+      "enabled": true,
+      "description": "Zsh shell for testing configuration changes"
+    },
+    "tmux": {
+      "enabled": true,
+      "description": "Tmux terminal multiplexer for testing tmux.conf changes"
+    },
+    "starship": {
+      "enabled": true,
+      "description": "Starship prompt for testing prompt configuration"
+    }
+  },
+  "commands": {
+    "test-install": {
+      "description": "Test installation script in dry-run mode",
+      "command": "bash -n install.sh",
+      "pattern": "install.sh"
+    },
+    "validate-tmux": {
+      "description": "Validate tmux configuration syntax",
+      "command": "tmux -f .tmux.conf start-server && tmux kill-server",
+      "pattern": ".tmux.conf"
+    },
+    "validate-starship": {
+      "description": "Validate starship configuration",
+      "command": "starship config validate",
+      "pattern": "starship.toml"
+    },
+    "test-zsh-syntax": {
+      "description": "Test zsh configuration syntax",
+      "command": "zsh -n .zshrc",
+      "pattern": ".zshrc"
+    }
+  },
+  "permissions": {
+    "shell-scripts": {
+      "description": "Shell scripts should be executable",
+      "pattern": "**/*.sh",
+      "executable": true
+    },
+    "config-files": {
+      "description": "Configuration files should be readable",
+      "pattern": "**/.*rc",
+      "readable": true
+    }
+  },
+  "formatters": {
+    "shfmt": {
+      "enabled": true,
+      "pattern": "**/*.sh",
+      "description": "Format shell scripts with shfmt"
+    }
+  },
+  "lsp": {
+    "bash-language-server": {
+      "enabled": true,
+      "pattern": "**/*.{sh,bash,zsh}",
+      "description": "Bash language server for shell script IntelliSense"
+    }
+  }
+}

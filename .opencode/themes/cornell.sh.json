@@ -1,0 +1,218 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "black": "#000000",
+    "white": "#e0e0e0",
+    "pink": "#e6638a",
+    "purple": "#ab84e0",
+    "cyan": "#75b5e6",
+    "cyanAccent": "#51dce6",
+    "green": "#3bab5b",
+    "red": "#e64d4d",
+    "yellow": "#e6d26f",
+    "gray": "#404040",
+    "darkGray": "#0a0a0a"
+  },
+  "theme": {
+    "primary": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "secondary": {
+      "dark": "purple",
+      "light": "purple"
+    },
+    "accent": {
+      "dark": "pink",
+      "light": "pink"
+    },
+    "error": {
+      "dark": "red",
+      "light": "red"
+    },
+    "warning": {
+      "dark": "yellow",
+      "light": "yellow"
+    },
+    "success": {
+      "dark": "green",
+      "light": "green"
+    },
+    "info": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "text": {
+      "dark": "white",
+      "light": "black"
+    },
+    "textMuted": {
+      "dark": "gray",
+      "light": "gray"
+    },
+    "background": {
+      "dark": "black",
+      "light": "white"
+    },
+    "backgroundPanel": {
+      "dark": "black",
+      "light": "white"
+    },
+    "backgroundElement": {
+      "dark": "darkGray",
+      "light": "#f0f0f0"
+    },
+    "border": {
+      "dark": "gray",
+      "light": "#c0c0c0"
+    },
+    "borderActive": {
+      "dark": "pink",
+      "light": "pink"
+    },
+    "borderSubtle": {
+      "dark": "darkGray",
+      "light": "#e0e0e0"
+    },
+    "diffAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffRemoved": {
+      "dark": "red",
+      "light": "red"
+    },
+    "diffContext": {
+      "dark": "gray",
+      "light": "#909090"
+    },
+    "diffHunkHeader": {
+      "dark": "gray",
+      "light": "#909090"
+    },
+    "diffHighlightAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffHighlightRemoved": {
+      "dark": "red",
+      "light": "red"
+    },
+    "diffAddedBg": {
+      "dark": "#0a1a0a",
+      "light": "#e0ffe0"
+    },
+    "diffRemovedBg": {
+      "dark": "#1a0a0a",
+      "light": "#ffe0e0"
+    },
+    "diffContextBg": {
+      "dark": "darkGray",
+      "light": "#f5f5f5"
+    },
+    "diffLineNumber": {
+      "dark": "gray",
+      "light": "#808080"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#0a1a0a",
+      "light": "#e0ffe0"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#1a0a0a",
+      "light": "#ffe0e0"
+    },
+    "markdownText": {
+      "dark": "white",
+      "light": "black"
+    },
+    "markdownHeading": {
+      "dark": "purple",
+      "light": "purple"
+    },
+    "markdownLink": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "markdownLinkText": {
+      "dark": "cyanAccent",
+      "light": "cyanAccent"
+    },
+    "markdownCode": {
+      "dark": "green",
+      "light": "green"
+    },
+    "markdownBlockQuote": {
+      "dark": "gray",
+      "light": "#909090"
+    },
+    "markdownEmph": {
+      "dark": "pink",
+      "light": "pink"
+    },
+    "markdownStrong": {
+      "dark": "yellow",
+      "light": "#c4a000"
+    },
+    "markdownHorizontalRule": {
+      "dark": "gray",
+      "light": "#909090"
+    },
+    "markdownListItem": {
+      "dark": "purple",
+      "light": "purple"
+    },
+    "markdownListEnumeration": {
+      "dark": "cyanAccent",
+      "light": "cyanAccent"
+    },
+    "markdownImage": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "markdownImageText": {
+      "dark": "cyanAccent",
+      "light": "cyanAccent"
+    },
+    "markdownCodeBlock": {
+      "dark": "white",
+      "light": "black"
+    },
+    "syntaxComment": {
+      "dark": "gray",
+      "light": "#606060"
+    },
+    "syntaxKeyword": {
+      "dark": "purple",
+      "light": "#7c3aed"
+    },
+    "syntaxFunction": {
+      "dark": "cyan",
+      "light": "#0891b2"
+    },
+    "syntaxVariable": {
+      "dark": "pink",
+      "light": "#c026d3"
+    },
+    "syntaxString": {
+      "dark": "green",
+      "light": "#15803d"
+    },
+    "syntaxNumber": {
+      "dark": "red",
+      "light": "#b91c1c"
+    },
+    "syntaxType": {
+      "dark": "cyanAccent",
+      "light": "#06b6d4"
+    },
+    "syntaxOperator": {
+      "dark": "yellow",
+      "light": "#a16207"
+    },
+    "syntaxPunctuation": {
+      "dark": "white",
+      "light": "#606060"
+    }
+  }
+}
