@@ -1,15 +1,15 @@
-# unix-config: Your Consistent, OLED-Optimized Linux Environment
+# unix-config: A Polished, Consistent Linux Configuration
 
-Tired of a disjointed terminal experience across your machines? This repository provides a cohesive, OLED-friendly configuration for Zsh, Tmux, Starship, Ghostty, and DankMaterialShell. Get a beautiful, functional, and consistent shell experience tailored for everyday Linux use, whether you're on a powerful Arch notebook or a snappy WSL2 setup.
+This repository holds my personal dotfiles and configuration for a streamlined Linux environment. The goal is to provide a clean, efficient, and visually consistent setup across different machines, whether it's my Arch Linux notebook or a WSL2 instance. Expect a refined terminal experience with a focus on usability and aesthetics.
 
-## What's Inside?
+## What You'll Find
 
-We focus on a clean, efficient, and visually appealing setup. Every component here is tuned for:
+Everything here is configured with a few core ideas in mind:
 
--   **Performance:** Fast response times and minimal resource usage.
--   **Consistency:** A unified `cornellsh` theme ties everything together visually.
--   **OLED Optimization:** True black backgrounds and vibrant pastels save power and look stunning on OLED displays.
--   **Usability:** Sensible defaults and quality-of-life improvements without unnecessary bloat.
+-   **Performance:** Keeping things fast and responsive, minimizing resource usage.
+-   **Visual Consistency:** A unified `cornellsh` theme ties the look and feel together across all applications.
+-   **OLED-Friendly:** Optimized for OLED displays with true black backgrounds and vibrant, yet subtle, pastel colors.
+-   **Practical Defaults:** Sensible settings and useful tools without getting in your way.
 
 ### Components & Highlights:
 
