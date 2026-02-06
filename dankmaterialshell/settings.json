@@ -384,6 +384,10 @@
           "enabled": true
         },
         {
+          "id": "music",
+          "enabled": true
+        },
+        {
           "id": "battery",
           "enabled": true
         },

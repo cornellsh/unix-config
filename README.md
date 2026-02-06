@@ -1,22 +1,22 @@
 # unix-config
 
-Personal dotfiles and configuration for reproducing my Linux environment across machines. I use this setup on Arch Linux (Intel 12th Gen notebook) and WSL2.
+Dotfiles and configuration files for my Linux setup. I run this on Arch Linux (Intel 12th Gen notebook) and WSL2.
 
-## What's Included
+## What's Here
 
-- **Zsh** (.zshrc): Shell configuration with history sharing, auto-cd, and modern tool aliases (eza, bat, ripgrep)
-- **Starship Prompt** (starship.toml): Single-line prompt with git status, language versions, command duration
-- **Tmux** (.tmux.conf): Terminal multiplexer with Ctrl+a prefix, Vim-style navigation, and OLED-optimized colors
+- **Zsh** (.zshrc): Shell config with shared history, auto-cd, and aliases for eza, bat, ripgrep
+- **Starship Prompt** (starship.toml): Single-line prompt showing git branch, language versions, command time
+- **Tmux** (.tmux.conf): Terminal multiplexer with Ctrl+a prefix, Vim-style keybindings, OLED-friendly colors
 - **Ghostty Terminal** (~/.config/ghostty): Terminal config with cornellsh theme, 12pt font
-- **DankMaterialShell** (~/.config/DankMaterialShell): Wayland shell with cornellsh theme integration
-- **OpenCode** (~/.config/opencode): AI coding assistant config with cornell.sh theme and auto-permissions
-- **Themes** (themes-setup.sh): GTK, icons, cursor, and SDDM theme setup (Mojave, Papirus, macOS cursors, where-is-my-sddm-theme)
+- **DankMaterialShell** (~/.config/DankMaterialShell): Wayland shell with cornellsh theme
+- **OpenCode** (~/.config/opencode): AI coding assistant config with cornell.sh theme, auto-permissions
+- **Themes** (themes-setup.sh): GTK, icons, cursor, and SDDM theme setup
 - **Notebook Setup** (setup_notebook.sh): Power management for Intel 12th Gen (TLP, thermald, ZRAM)
-- **WSL2 Setup** (wsl-setup.sh): Windows Subsystem for Linux optimizations
+- **WSL2 Setup** (wsl-setup.sh): WSL2 optimizations
 
-All tools use the cornellsh theme: true black (#000000) backgrounds with pastel accents. This looks good on OLED screens and saves power.
+Everything uses the cornellsh theme: true black (#000000) backgrounds with pastel colors. Works well on OLED displays.
 
-## Installation
+## Installing
 
 ```bash
 git clone https://github.com/cornellsh/unix-config ~/my_dotfiles
@@ -24,192 +24,85 @@ cd ~/my_dotfiles
 ./install.sh
 ```
 
-The install script:
-- Detects your OS (Arch or Debian/Ubuntu) and installs dependencies via apt/pacman
-- Backs up existing configs to `.backup` files before symlinking
-- Installs: git, tmux, zsh, curl, ghostty, zsh-autosuggestions, zsh-syntax-highlighting, starship
-- Asks about WSL2 optimizations if running in WSL
-- Asks about OpenCode theme installation
+The script detects your OS (Arch or Debian/Ubuntu) and installs dependencies via apt/pacman. It backs up existing configs to `.backup` files before creating symlinks. Installs: git, tmux, zsh, curl, ghostty, zsh-autosuggestions, zsh-syntax-highlighting, starship.
+
+You'll get prompts for:
+- WSL2 optimizations (if running in WSL)
+- OpenCode theme installation
+- GTK/SDDM theme installation
+
+After installing, reload your shell or run `source ~/.zshrc`.
 
 ## Theme Setup (themes-setup.sh)
 
-Optional script for visual customization:
+Optional script for GTK, icons, cursors, and login screen:
 
 ```bash
 ./themes-setup.sh
 ```
 
-This script:
-- Installs Mojave GTK theme (dark macOS-inspired)
-- Installs Papirus icon theme (dark variant for OLED)
-- Installs macOS-Tahoe cursors (exact macOS clone)
-- Installs where-is-my-sddm-theme (minimalist SDDM theme)
-- Configures GTK settings (via gsettings)
-- Configures SDDM to use where-is-my-sddm-theme
-- Removes niri compositor from SDDM config (prevents keybinding overlay on login screen)
-- Optionally installs nwg-look (GTK theme switcher for Wayland)
+Requires yay (AUR helper) and Arch Linux. Installs Mojave GTK theme, Papirus icons (dark variant), macOS-Tahoe cursors, and where-is-my-sddm-theme. Configures via gsettings and sets up SDDM. Also removes niri compositor from SDDM config to prevent keybinding overlay on login screen.
 
-Requires: yay (AUR helper), Arch Linux
-
-After installation, restart your shell or run `source ~/.zshrc`.
+Restart session or run `nwg-look` to apply GTK changes. Restart SDDM with `sudo systemctl restart sddm` for login theme.
 
 ## Components
 
 ### Zsh
 
-- History: 50,000 lines, shared across sessions, ignores duplicates and space-prefixed commands
-- Autocomplete: Case-insensitive with caching, fuzzy matching
-- Keybindings: Emacs mode with Ctrl+Left/Right for word navigation
-- Aliases: g=git, t=tmux, ls=eza, cat=bat, cd=z (via zoxide)
-- Plugins: zsh-autosuggestions (history+completion strategy), zsh-syntax-highlighting (currently commented out)
+History holds 50,000 lines, shared across sessions. Ignores duplicates and commands starting with space. Autocomplete is case-insensitive with fuzzy matching. Uses Emacs keybindings (Ctrl+Left/Right for word navigation). Aliases: g=git, t=tmux, ls=eza, cat=bat, cd=z (via zoxide). Plugins: zsh-autosuggestions, zsh-syntax-highlighting (commented out).
 
 ### Starship Prompt
 
-Single-line format that shows:
-- Username@hostname (SSH only)
-- Current directory (truncated at 3 levels)
-- Git branch and status (modified, stashed, deleted, untracked, conflicted)
-- Language versions: node, rust, go, python
-- Command duration (for commands >2 seconds)
-- Memory usage (currently disabled, 85% threshold)
-- Background jobs
-
-Colors use the cornellsh palette: pink (#ff66b2), cyan (#00bfff), green (#00cc00), purple (#9932cc), yellow (#ffff00), red (#ff0000).
+Single line showing username@hostname (SSH only), directory (3 levels deep), git branch and status (modified, stashed, deleted, untracked, conflicted), language versions (node, rust, go, python), command duration (if >2 seconds), and background jobs. Memory module disabled. Colors from cornellsh palette: pink (#ff66b2), cyan (#00bfff), green (#00cc00), purple (#9932cc), yellow (#ffff00), red (#ff0000).
 
 ### Tmux
 
-- Prefix: Ctrl+a (rebinds Ctrl+a to send prefix)
-- Navigation: Vim-style h/j/k/l for panes, Ctrl+h/j/k/l for smart pane switching
-- Panes: v=horizontal split, s=vertical split, H/J/K/L resize
-- Windows: c=new window, z=zoom pane, x=kill pane, X=kill window
-- Status bar: Bottom position, 1-second interval, shows session name, time, and window list
-- Colors: Black background with pink prefix indicators, purple active window
-- Reload: Prefix+r reloads config
-- Mouse: Enabled for pane selection and resizing
+Prefix: Ctrl+a. Vim-style navigation: h/j/k/l for panes, Ctrl+h/j/k/l for smart pane switching. v=horizontal split, s=vertical split, H/J/K/L to resize. c=new window, z=zoom pane, x=kill pane, X=kill window. Status bar at bottom updates every second. Reload config with Prefix+r. Mouse enabled for pane selection and resizing. Colors: black background, pink prefix indicators, purple active window.
 
 ### Ghostty Terminal
 
-Config location: `~/.config/ghostty/config`
+Config: `~/.config/ghostty/config`
 
-- Font: 12pt, Inter Variable for UI, Cascadia Code NF for monospace
-- Window: No decoration, 12px padding, 32px blur radius
-- Cursor: Block style, blinking
-- Scrollback: 3023 lines
-- Theme: cornellsh (OLED black #000000 with pastel palette)
-- Keybindings: Ctrl+Shift+N (new window), Ctrl+T (new tab), Ctrl+Plus/Minus (font size)
-- Shell integration: Auto-detected
+12pt font (Inter Variable for UI, Cascadia Code NF for monospace). No window decorations, 12px padding, 32px blur. Block cursor with blinking. Scrollback: 3023 lines. cornellsh theme. Keybindings: Ctrl+Shift+N (new window), Ctrl+T (new tab), Ctrl+Plus/Minus (font size). Shell integration auto-detected.
 
 ### DankMaterialShell
 
-Config location: `~/.config/DankMaterialShell/settings.json`
+Config: `~/.config/DankMaterialShell/settings.json`
 
-Wayland shell (supports Niri, Hyprland) with:
-- Custom cornellsh.json theme copied to `~/Documents/DankMaterialShell/cornellsh.json`
-- Control center with volume, brightness, WiFi, Bluetooth widgets
-- Workspace switcher, system tray, weather, clock
-- Material 3 color scheme with 90% transparency
-- No dock (disabled by default)
+Wayland shell for Niri and Hyprland. Copies cornellsh.json theme to `~/Documents/DankMaterialShell/cornellsh.json`. Control center has volume, brightness, WiFi, Bluetooth. Also has workspace switcher, system tray, weather, clock. Material 3 colors, 90% transparency. Dock disabled.
 
 ### OpenCode
 
-Config location: `~/.config/opencode/opencode.json`
+Config: `~/.config/opencode/opencode.json`
 
-AI coding assistant configuration:
-- Plugins: `opencode-gemini-auth`, `@zenobius/opencode-skillful`
-- Theme: `cornell.sh.json` (matches terminal/shell)
-- Permissions: All operations allowed without prompts
-- Optional install (prompted during main install)
+Plugins: `opencode-gemini-auth`, `@zenobius/opencode-skillful`. Theme: `cornell.sh.json`. Permissions: all operations allowed. Optional install during main setup.
 
 ### Themes (themes-setup.sh)
 
-Visual theme configuration for GTK applications, icons, cursors, and login screen:
-
-**Installed Packages:**
-- mojave-gtk-theme: macOS Mojave-inspired GTK3/4 theme (AUR)
-- papirus-icon-theme: Flat, pixel-perfect icons with dark variant (official repos)
-- macOS cursors: Exact macOS cursor clone (macOS-Tahoe, AUR)
-- where-is-my-sddm-theme: Minimalist SDDM login theme (AUR)
-- nwg-look: GTK theme switcher for Wayland (optional, AUR)
-
-**Configured via gsettings:**
-- GTK Theme: Mojave-Dark
-- Icon Theme: Papirus-Dark (OLED-optimized)
-- Cursor Theme: macos-tahoe-cursor
-
-**SDDM Configuration:**
-- Theme: where_is_my_sddm_theme (set in `/etc/sddm.conf.d/theme.conf`)
-- Fix: Removes `CompositorCommand=niri` from `/etc/sddm.conf.d/niri.conf` to prevent niri keybinding overlay on login screen
-
-**Visual Style:**
-- Elegant, dark macOS-inspired aesthetics
-- True black backgrounds (#000000) for OLED screens
-- High contrast with refined details
-- Minimalist login screen with clean design
-- macOS-Tahoe cursor for exact macOS feel
-
-To apply GTK theme changes: restart session or run `nwg-look`
-To apply SDDM theme changes: `sudo systemctl restart sddm`
+Installs from AUR: mojave-gtk-theme, papirus-icon-theme, macOS-Tahoe cursors, where-is-my-sddm-theme. Optionally installs nwg-look (GTK theme switcher). gsettings configures Mojave-Dark GTK theme, Papirus-Dark icons, macOS-Tahoe cursors. SDDM uses where-is-my-sddm-theme. Removes `CompositorCommand=niri` from `/etc/sddm.conf.d/niri.conf` to avoid keybinding conflicts on login.
 
 ### Notebook Setup (setup_notebook.sh)
 
-Target hardware: Intel 12th Gen (Alder Lake) laptops
+For Intel 12th Gen (Alder Lake) laptops.
 
-Installed packages:
-- thermald: CPU thermal management
-- tlp: Power management with performance/powersave governors
-- powertop: Power consumption monitoring
+Installs: thermald, tlp, powertop. Configures TLP for performance on AC, powersave on battery, no turbo on battery, 75-80% charge threshold. TLP Bluetooth config prevents blocking on startup. ZRAM uses zstd compression, up to 8GB or RAM size. VA-API configures Intel iGPU hardware acceleration.
 
-Configurations:
-- **TLP** (/etc/tlp.d/99-optimization.conf): Performance mode on AC, powersave on battery, no turbo on battery, 75-80% battery charge threshold
-- **TLP Bluetooth** (/etc/tlp.d/99-bluetooth.conf): Prevents Bluetooth from being blocked on startup (TLP blocks by default for battery saving)
-- **ZRAM** (/etc/systemd/zram-generator.conf): Compressed swap using zstd, up to 8GB or RAM size
-- **VA-API** (~/.config/environment.d/hw-accel.conf): Hardware acceleration for Intel iGPU (LIBVA_DRIVER_NAME=iHD, MESA_LOADER_DRIVER_OVERRIDE=iris)
+Services: thermald, tlp, systemd-zram-setup, system-bluetooth-unblock.
 
-Services enabled: thermald, tlp, systemd-zram-setup, system-bluetooth-unblock
-
-**Bluetooth Fix:**
-TLP blocks Bluetooth on startup to save battery power. This setup:
-- Configures TLP to not block Bluetooth
-- Installs systemd service to unblock Bluetooth after Bluetooth starts
-- Keeps Bluetooth unblocked across reboots
-- Allows DankMaterialShell and other tools to use Bluetooth normally
+TLP blocks Bluetooth by default to save power. The config prevents this and adds a systemd service to keep Bluetooth unblocked across reboots.
 
 ### WSL2 Setup (wsl-setup.sh)
 
-Optimizations for Windows Subsystem for Linux:
+Disables systemd-timesyncd (WSL2 syncs with Windows). Configures /etc/wsl.conf for auto-mounting Windows drives with metadata (chmod/chown work), systemd, auto-generated hosts/resolv.conf. Sets up ~/.wslconfig with 8GB memory, 4 CPUs, 2GB swap.
 
-**Time sync fix:**
-- Disables systemd-timesyncd (WSL2 syncs time with Windows automatically)
-- Prevents clock drift issues
+Script tries to detect Windows username and copy .wslconfig automatically. If that fails, copy `wsl/.wslconfig` to `%UserProfile%\.wslconfig` on Windows.
 
-**WSL config** (/etc/wsl.conf):
-- Auto-mount Windows drives with metadata, umask=22, fmask=11 (allows chmod/chown on Windows files)
-- systemd enabled
-- Auto-generates /etc/hosts and /etc/resolv.conf
-
-**.wslconfig** (~/.wslconfig, on Windows side):
-- Memory: 8GB limit
-- CPUs: 4 cores
-- Swap: 2GB
-
-The script tries to detect your Windows username and copy .wslconfig automatically. If it fails, copy `wsl/.wslconfig` manually to `%UserProfile%\.wslconfig` on Windows.
-
-After running wsl-setup.sh, restart WSL2 with `wsl --shutdown` in PowerShell to apply changes.
+Run `wsl --shutdown` in PowerShell after the script to apply changes.
 
 ## Notes
 
-- Config files symlinked from repo, so changes in repo take effect after reload
-- Both `~/.tmux.conf` and `~/.config/tmux/tmux.conf` point to repo's `.tmux.conf` (tmux 3.0+ prefers XDG path)
-- Syntax highlighting in zsh is commented out in current version
-- Starship's git metrics and memory usage modules are disabled
-- Ghostty theme uses 16-color palette compatible with most terminals
+Config files are symlinks, so changes in the repo take effect after reload. Both `~/.tmux.conf` and `~/.config/tmux/tmux.conf` point to the repo's `.tmux.conf` (tmux 3.0+ prefers XDG path). zsh syntax highlighting is commented out. Starship git metrics and memory modules are disabled. Ghostty uses a 16-color palette. Notebook setup is for Intel 12th Gen only. Other hardware needs different TLP/VA-API configs.
 
 ## Requirements
 
-- **Arch Linux or Debian/Ubuntu**: apt or pacman package manager
-- **Ghostty**: GPU-accelerated terminal emulator
-- **Zsh**: Default shell
-- **Starship**: Prompt engine
-- Optional: niri or Hyprland (for DankMaterialShell shell integration)
-- Themes setup requires: Arch Linux, yay (AUR helper)
-- Notebook setup targets Intel 12th Gen only; other hardware may need different TLP/VA-API configs
+Arch Linux or Debian/Ubuntu. Ghostty terminal. Zsh as default shell. Starship. Optional: niri or Hyprland for DankMaterialShell. Theme setup needs Arch and yay. Notebook setup is Intel 12th Gen specific.

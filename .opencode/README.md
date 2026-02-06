@@ -1,39 +1,39 @@
 # OpenCode
 
-This directory contains the actual OpenCode configuration files that should be installed to `~/.config/opencode/`.
+This directory has OpenCode configuration files for `~/.config/opencode`.
 
-## Contents
+## Files
 
-- `opencode.json` - Main OpenCode configuration
-- `themes/cornell.sh.json` - OLED-optimized vibrant pastel theme
+- `opencode.json` - Main configuration
+- `themes/cornell.sh.json` - Pastel theme for OLED displays
 
-## Installation
+## Install
 
-Run the install script:
+Run the script:
 ```bash
 ./install.sh
 ```
 
-The script will prompt to install OpenCode config and theme.
+It installs OpenCode config and theme.
 
 ## Theme: cornell.sh
 
-OLED-optimized vibrant pastel theme matching the unix-config aesthetic:
+A pastel theme for OLED screens:
 
-- Background: Pure black (#000000) - OLED optimal
-- Text: Dimmed white (#e0e0e0) - Reduces OLED burn-in risk
-- Accent colors at 90% brightness for OLED longevity
-- Matches the Starship prompt color scheme
+- Background: Black (#000000)
+- Text: Dimmed white (#e0e0e0)
+- Accent colors at 90% brightness
+- Matches Starship prompt colors
 
-## Manual Installation
+## Manual install
 
-To install without running the full setup:
+Copy the files directly:
 
 ```bash
 # Install theme
 cp .opencode/themes/cornell.sh.json ~/.config/opencode/themes/cornell.sh.json
 
-# Install config (backs up existing)
+# Install config
 mv ~/.config/opencode/opencode.json ~/.config/opencode/opencode.json.backup
 cp opencode.json ~/.config/opencode/opencode.json
 ```
