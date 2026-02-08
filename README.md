@@ -77,6 +77,12 @@ Config: `~/.config/opencode/opencode.json`
 
 Plugins: `opencode-gemini-auth`, `@zenobius/opencode-skillful`. Theme: `cornell.sh.json`. Permissions: all operations allowed. Optional install during main setup.
 
+#### MCP Servers
+
+Model Context Protocol (MCP) server support for extended OpenCode functionality.
+
+**Context7**: AI-powered documentation query and code analysis server. Requires `CONTEXT7_API_KEY` environment variable set in `.zshrc`. Obtain API key from https://context7.com. Configuration uses remote server connection at `https://mcp.context7.com/mcp`. See `.opencode/README.md` for detailed setup instructions.
+
 ### Themes (themes-setup.sh)
 
 Installs from AUR: mojave-gtk-theme, papirus-icon-theme, macOS-Tahoe cursors, where-is-my-sddm-theme. Optionally installs nwg-look (GTK theme switcher). gsettings configures Mojave-Dark GTK theme, Papirus-Dark icons, macOS-Tahoe cursors. SDDM uses where-is-my-sddm-theme. Removes `CompositorCommand=niri` from `/etc/sddm.conf.d/niri.conf` to avoid keybinding conflicts on login.

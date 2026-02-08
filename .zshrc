@@ -19,6 +19,9 @@ export EDITOR="nano"
 export VISUAL="nano"
 export PAGER="less"
 
+# Context7 MCP (optional): export CONTEXT7_API_KEY="your-api-key-here"
+# Get key from https://context7.com
+
 # --- History ---
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000

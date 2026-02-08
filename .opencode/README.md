@@ -25,6 +25,27 @@ A pastel theme for OLED screens:
 - Accent colors at 90% brightness
 - Matches Starship prompt colors
 
+## MCP Servers
+
+OpenCode is configured with Model Context Protocol (MCP) server support for enhanced functionality.
+
+### Context7
+
+Purpose: AI-powered documentation query and code analysis.
+
+**Setup**:
+
+1. Get an API key from https://context7.com
+2. Add to your `.zshrc`:
+
+```bash
+export CONTEXT7_API_KEY="your-api-key-here"
+```
+
+3. Reload shell: `source ~/.zshrc`
+
+**Configuration**: Automatically configured via `opencode.json` with remote server connection to `https://mcp.context7.com/mcp`.
+
 ## Manual install
 
 Copy the files directly:
